@@ -28,5 +28,6 @@ def create_todo(request: Request):
 
 @api_view(["GET"])
 def todo_list(request):
-    all_plans = ToDo.objects.all()
-    return []
+    all_plans = ToDo.objects.all().values()
+    return Response(all_plans)
+
