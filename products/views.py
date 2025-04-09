@@ -25,3 +25,8 @@ def create_todo(request: Request):
     data = request.data
     ToDo.objects.create(**data)
     return Response({"msg": "Success"}, status=status.HTTP_201_CREATED)
+
+@api_view(["GET"])
+def todo_list(request):
+    all_plans = ToDo.objects.all()
+    return []
