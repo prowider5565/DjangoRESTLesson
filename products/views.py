@@ -39,3 +39,9 @@ def update_todo(request : Request,id):
     product.status = data['status']
     product.save()
     return Response({'msg':'Updated'}, status=status.HTTP_200_OK)
+
+@api_view(['DELETE'])
+def todo_delete(request, pk):
+    instance = ToDo.objects.get(id=pk)
+    instance.delete()
+    return Response(status=204)
