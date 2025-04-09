@@ -30,3 +30,12 @@ def create_todo(request: Request):
 def todo_list(request):
     all_plans = ToDo.objects.all()
     return []
+
+@api_view(['PATCH'])
+def update_todo(request : Request,id):
+    data = request.data
+    product = ToDo.objects.get(id=id)
+    product.content = data['content']
+    product.status = data['status']
+    product.save()
+    return Response({'msg':'Updated'}, status=status.HTTP_200_OK)
