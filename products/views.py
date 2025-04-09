@@ -31,3 +31,8 @@ def todo_list(request):
     all_plans = ToDo.objects.all().values()
     return Response(all_plans)
 
+@api_view(['DELETE'])
+def todo_delete(request, pk):
+    instance = ToDo.objects.get(id=pk)
+    instance.delete()
+    return Response(status=204)
