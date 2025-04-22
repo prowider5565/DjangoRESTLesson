@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth import get_user_model
+import uuid
 
 from .enums import UserRole, UserStatus
 
@@ -16,7 +17,6 @@ class Admin(models.Model):
 
     def __str__(self):
         return self.full_name
-
 
 class Customer(models.Model):
     id = models.UUIDField(primary_key=True, editable=False)
