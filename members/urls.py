@@ -1,7 +1,8 @@
 from django.urls import path
-from .views import CustomerRegisterAPIView, VerifyRegistrationAPIView
+
+from members.views import RegisterAPIView, verifyEmail
 
 urlpatterns = [
-    path("customers/register/", CustomerRegisterAPIView),
-    path("customers/sign-in/", VerifyRegistrationAPIView)
+    path("register/", RegisterAPIView.as_view()),
+    path("verify-email/", verifyEmail)
 ]
